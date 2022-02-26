@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+ .stripes {
+    background-size: 8px 8px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%,
+                      transparent 25%,
+                      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                      transparent 75%, transparent);
+    animation: animate-stripes 3s linear infinite;
+  }
+
+
+#Progress_BG {
+  width: 60%;
+  background-color: #F6F6F6;
+}
+
+#Progress_Padding {
+    padding : 40px 30px 40px 30px;
+}
+
+#Progress_Status {
+  width: 100%;
+  background-color: #ddd;
+  border-radius:50px;
+ 
+}
+  
+.myprogressBar {
+  width: 50%;
+  height: 25px;
+  text-align: right;
+  line-height: 32px;
+  color: black;
+  border-radius:50px;
+  box-shadow: 0 10px 10px -10px #121211;
+  border: solid 1px;
+  border-color: #A8A89E;
+
+}
+
+
+.bar1{
+  background-color: #B6DC5C;
+
+}
+
+.bar2{
+  background-color: #F28C8C;
+}
+
+.bar3{
+  background-color: #FFFFFF;
+}
+
+.bar4{
+  background-color: #8CEBF2;
+}
+
+.bar5{
+  background-color: #FFFF99;
+}
+
+.value {
+  vertical-align: top;
+  padding-right: 10px;
+}
+</style>
+<body>
+  
+
+<div id="Progress_BG">
+<div id = "Progress_Padding">
+<div id="Progress_Status">
+  <div id="myprogressBar1" class= "myprogressBar bar1 stripes"><span class = "value" >50%</span></div>
+</div>
+<br>
+<div id="Progress_Status">
+  <div id="myprogressBar2" class= "myprogressBar bar2 stripes"><span class = "value" >50%</span></div>
+</div>
+<br>
+<div id="Progress_Status">
+  <div id="myprogressBar3" class= "myprogressBar bar3 stripes"><span class = "value" >50%</span></div>
+</div>
+<br>
+<div id="Progress_Status">
+  <div id="myprogressBar4" class= "myprogressBar bar4 stripes"><span class = "value" >50%</span></div>
+</div>
+<br>
+<div id="Progress_Status">
+  <div id="myprogressBar5" class= "myprogressBar bar5 stripes"><span class = "value" >50%</span></div>
+</div>
+</div>
+</div>
+  
+<br>
+<button onclick="update()">Finish</button> 
+
+<div id="bar">
+<br />
+<div id="stripes"></div>
+</div>
+  
+<script>
+function update() {   
+  var width = 50;
+  var identity = setInterval(scene, 10);
+  function scene() {
+    if (width >= 100) {
+      clearInterval(identity);
+    } else {
+      width++; 
+      for (i =1; i <= 5; i++){
+         var element = document.getElementById("myprogressBar" + i); 
+         element.style.width = width + '%'; 
+         element.innerHTML = '<span class = "value" >' + width * 1  + '%</span>' ;
+	}
+    }
+  }
+
+}
+</script>
+  
+</body>
+</html>
